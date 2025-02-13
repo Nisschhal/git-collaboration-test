@@ -139,6 +139,7 @@ To ensure that everything is set up correctly, run the following tests for both 
 
 ```bash
 ssh -T git@github.com-personal
+```
 
 You should see:
 
@@ -146,63 +147,68 @@ Hi yourusername! You've successfully authenticated, but GitHub does not provide 
 
 Test Work SSH Key
 
+```bash
+
 ssh -T git@github.com-work
+```
 
 You should see:
 
 Hi yourworkusername! You've successfully authenticated, but GitHub does not provide shell access.
 
-Step 6: Update Your Git Remote URLs
+## Step 6: Update Your Git Remote URLs
 
 You need to use the correct SSH URL for each repository.
 
-For Personal Repos:
-	1.	If you’re cloning a personal repository, use the following SSH URL:
+### For Personal Repos: 1. If you’re cloning a personal repository, use the following SSH URL:
+
+```bash
 
 git@github.com-personal:yourusername/your-repo.git
+```
 
+### For Work Repos: 2. If you’re cloning a work repository, use the following SSH URL:
 
+```bash
+git@github.com-work:yourworkusername/your-repo.git
+```
 
-For Work Repos:
-2. If you’re cloning a work repository, use the following SSH URL:
-bash git@github.com-work:yourworkusername/your-repo.git
+**To change the remote URL for an existing repo:**
 
-To change the remote URL for an existing repo:
-
-git remote set-url origin git@github.com-personal:yourusername/your-repo.git  # For personal repos
+```bash
+git remote set-url origin git@github.com-personal:yourusername/your-repo.git # For personal repos
 
 OR
 
-git remote set-url origin git@github.com-work:yourworkusername/your-repo.git  # For work repos
+git remote set-url origin git@github.com-work:yourworkusername/your-repo.git # For work repos
+```
 
-Step 7: Verify Configuration
+## Step 7: Verify Configuration
 
-Make sure that your Git configuration is correct for each repository:
-	1.	For a personal repo, run:
+Make sure that your Git configuration is correct for each repository: 1. For a personal repo, run:
 
+    1.	For a personal repo, run:
+
+```bash
 git config user.name
 git config user.email
+```
 
+    2.	For a work repo, run:
 
-	2.	For a work repo, run:
-
+```bash
 git config user.name
 git config user.email
-
-
+```
 
 Each repository should use the appropriate credentials and SSH keys based on the configuration.
 
-Recap of Key Steps:
-	1.	Generate separate SSH keys for your personal and work accounts.
-	2.	Add both SSH keys to the SSH agent.
-	3.	Configure the SSH config file to distinguish between personal and work accounts using custom hostnames (github.com-personal and github.com-work).
-	4.	Test SSH keys to make sure both accounts are working properly.
-	5.	Update the repository remote URLs to use the correct SSH configuration.
+**Recap of Key Steps:**
+
+1. Generate separate SSH keys for your personal and work accounts.
+2. Add both SSH keys to the SSH agent.
+3. Configure the SSH config file to distinguish between personal and work accounts using custom hostnames (github.com-personal and github.com-work).
+4. Test SSH keys to make sure both accounts are working properly.
+5. Update the repository remote URLs to use the correct SSH configuration.
 
 By following this setup, you’ll be able to work with both your personal and work GitHub repositories seamlessly, without encountering permission issues.
-
-This guide is now formatted as .md content, and you can directly use it for your GitHub repository or future blog posts! Let me know if you’d like any other changes.
-
-This version is formatted as a single, consistent `.md` file without any deviations, ensuring you can directly use it. Let me know if you'd like further tweaks!
-```
